@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  # namespace: default  # Change as needed
+data:
+  nginx.conf: |
+    user  nginx;
+    worker_processes  auto;
+    error_log  /var/log/nginx/error.log;
+
+    events {
+        worker_connections  1024;
+    }
+
+    http {
+    default_type  application/octet-stream;
+    include       /etc/nginx/mime.types;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+      server {
+        listen       80;
+        listen  [::]:80;
+        server_name  localhost;
+
+        location / {
+            root   /usr/share/nginx/html;
+            index  index.html;
+        }
+
+        # Enable the stub_status for metrics
+        location /stub_status {
+          stub_status;
+          allow all;  # Allow only local access; adjust as needed
+          # deny all;
+        }
+      }
+      
+      keepalive_timeout  65;
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app
+  # namespace: default  # Change as needed
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: bjnandi/cv:v1
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf  # Specifies that only nginx.conf from ConfigMap should be mounted here
+
+        - name: nginx-logs
+          mountPath: /var/log/nginx
+
+      volumes:
+      - name: nginx-config-volume
+        configMap:
+          name: nginx-config
+
+      - name: nginx-logs
+        hostPath:
+          path: /home/ubuntu/nginx-logs  # Local path on the host machine
+          type: DirectoryOrCreate 
+---
+# nginx-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx
+spec:
+  type: NodePort  # You can use ClusterIP, LoadBalancer, or NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30080  # Optional: Specify a NodePort if using NodePort type
+  selector:
+    app: nginx

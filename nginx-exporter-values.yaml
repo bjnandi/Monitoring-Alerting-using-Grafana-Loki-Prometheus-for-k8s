@@ -1,0 +1,1 @@
+nginxServer: http://nginx-service.monitoring.svc.cluster.local/stub_status

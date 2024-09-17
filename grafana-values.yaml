@@ -1,0 +1,23 @@
+service:
+  type: NodePort
+  nodePort: 30000
+
+persistence:
+  type: pvc
+  enabled: true
+  # storageClassName: default
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+
+assertNoLeakedSecrets: false
+
+grafana.ini:
+  smtp:
+    enabled: true
+    host: sandbox.smtp.mailtrap.io:587
+    user: "a7a6b93f04ebd4"
+    password: "ebecc39e0376ef"
+    from_address: grafanaalert@mailtrap.com
+    from_name: Grafana
+    skip_verify: true

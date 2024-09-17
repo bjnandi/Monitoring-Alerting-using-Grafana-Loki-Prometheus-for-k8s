@@ -1,0 +1,30 @@
+deploymentMode: SingleBinary
+loki:
+  auth_enabled: false 
+  commonConfig:
+    replication_factor: 1  # Single node, no replication needed
+
+  storage:
+    type: 'filesystem'  # Using local filesystem for storage
+
+  schemaConfig:
+    configs:
+      - from: "2024-01-01"  # Date from which this schema config applies
+        store: tsdb
+        object_store: filesystem  # Storing data locally
+        schema: v13
+        index:
+          prefix: loki_index_  # Prefix for index tables
+          period: 24h          # Period for creating new index tables
+
+singleBinary:
+  replicas: 1  # Single instance
+
+read:
+  replicas: 0  # Not used in SingleBinary mode
+
+backend:
+  replicas: 0  # Not used in SingleBinary mode
+
+write:
+  replicas: 0  # Not used in SingleBinary mode
