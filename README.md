@@ -5,12 +5,10 @@ A Completed Monitoring & Alerting project using Grafana, Loki, and Prometheus fo
 By integrating Grafana for dashboards, Loki for log aggregation, and Prometheus for metrics collection, this setup with advanced alerting, receive timely notifications based on custom thresholds.
 
 # Diagram
-[![Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App
- Zero Downtime TechTips CloudComputing DevOps DevOpsTools DevOpsPipeline DevOpsLife bjnandi biswajitnandi Biswajit Nandi](/static/Diagram.webp)](https://github.com/bjnandi/python-flask-postgresql-crud-application "Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App")
+[![Monitoring & Alerting using Grafana, Loki and Prometheus for Kubernetes and Nginx Metrics with Logs TechTips CloudComputing DevOps DevOpsTools DevOpsPipeline DevOpsLife bjnandi biswajitnandi Biswajit Nandi](/images/B3g6vARdQdoW2RtD-GDg0g.webp)](https://github.com/bjnandi/monitoring-alerting-using-grafana-loki-prometheus-for-k8s "Monitoring & Alerting using Grafana, Loki and Prometheus for Kubernetes and Nginx Metrics with Logs")
 
 # Demo
-[![Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App
- Zero Downtime TechTips CloudComputing DevOps DevOpsTools DevOpsPipeline DevOpsLife bjnandi biswajitnandi Biswajit Nandi](/static/Automated%20Jenkins%20CICD%20Pipeline%20using%20Kubernetes%20(Kubeadm)%20with%20SonarQube%20%26%20Argo%20CD%20for%20Python%C2%A0App.gif)](https://github.com/bjnandi/python-flask-postgresql-crud-application "Automated Jenkins CI/CD Pipeline using Kubernetes (Kubeadm) with SonarQube & Argo CD for Python App")
+[![Monitoring & Alerting using Grafana, Loki and Prometheus for Kubernetes and Nginx Metrics with Logs TechTips CloudComputing DevOps DevOpsTools DevOpsPipeline DevOpsLife bjnandi biswajitnandi Biswajit Nandi](/images/Monitoring%20%26%20Alerting%20using%20Grafana%2C%20Loki%20and%20Prometheus%20for%20Kubernetes%20and%20Nginx%20Metrics%20with%C2%A0Logs.gif)](https://github.com/bjnandi/monitoring-alerting-using-grafana-loki-prometheus-for-k8s "Monitoring & Alerting using Grafana, Loki and Prometheus for Kubernetes and Nginx Metrics with Logs")
 
 
 ## For more Details
