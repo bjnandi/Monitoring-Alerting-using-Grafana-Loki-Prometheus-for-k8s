@@ -30,5 +30,6 @@ Stay updated with my latest projects and articles:
   ![Medium Badge](https://img.shields.io/badge/Medium-Follow%20Me%20on%20Medium-000?logo=medium&style=social)
 
 <br>
-Thank you for your support and interest in my work! <br>
-Happy coding! 💻✨
+Thank you for your support and interest in my work!
+
+— — — — — — — — — — — — Happy DevOps Journey 💻✨— — — — — — — — — — — —
